@@ -1,0 +1,11 @@
+<div style="height: 100%; width:100%; background: #F0F0F0; filter: brightness({{brightness}})">
+    <p id="currentTableText">{{currentSelection}}</p>
+    <div class="addBut" *ngIf="currentSelection == 'Licenses'" (click)="crudOperation('addLicense')">Issue license</div>
+    <div class="addBut" *ngIf="currentSelection == 'Products'" (click)="crudOperation('addProduct')">Add product</div>
+    <app-dashboard (notifySelection)="changeSelection($event)" *ngIf="currentSelection == 'Dashboard'"></app-dashboard>
+    <app-license-table *ngIf="currentSelection == 'Licenses'" ></app-license-table>
+    <app-product-table *ngIf="currentSelection == 'Products'"></app-product-table>
+    <app-customer-table *ngIf="currentSelection == 'Customers'"></app-customer-table>
+</div>
+<app-add-license *ngIf="currentSelection == 'Licenses' && addLicenseFlag" (notifyCancel)="cancel()" (notifyAddLicense)="addLicense()"></app-add-license>
+<app-add-product *ngIf="currentSelection == 'Products' && addProductFlag" (notifyCancel)="cancel()" (notifyAddProduct)="addProduct()"></app-add-product>

@@ -1,0 +1,31 @@
+<div id="addProduct">
+    <p style="font-size:1.5vw; padding-left:2vw; padding-top:2vw;">Add product</p>
+    <form [formGroup]="addProductFormGroup" style="margin-top: 5vh;">
+        <div style="display:flex; flex-direction:row; justify-content: space-evenly; padding:1vw;">
+           <div style="display:flex; flex-direction:column;">
+            <label for="productName" style="font-size:1.1vw;">Product name</label>
+            <input type="text" id="productName" min="1" max="5" style="width:13vw; height:3vh; font-size:1.1vw" formControlName="productNameControl" />
+            <!-- <p style="font-size:1.1vw; color:red; position:absolute; top:27vh;" *ngIf="!this.addLicenseForm.controls.maxActivationsControl.valid"> Please enter a valid value!</p> -->
+          </div>
+          <div style="display:flex; flex-direction:column;">
+            <label for="shortCode" style="font-size:1.1vw;">Short code</label>
+            <input type="text" id="shortCode" min="1" max="5" style="width:13vw; height:3vh; font-size:1.1vw" formControlName="shortCodeControl" />
+            <!-- <p style="font-size:1.1vw; color:red; position:absolute; top:27vh;" *ngIf="!this.addLicenseForm.controls.maxActivationsControl.valid"> Please enter a valid value!</p> -->
+          </div>
+          <div style="display:flex; flex-direction:column;">
+            <p style="margin:0; font-size:1.1vw;">License type</p>
+            <select formControlName="licenseTypeControl" style="width:13vw; height:3vh; font-size:1.1vw">
+                <option value="Perpetual">Perpetual</option>
+                <option value="Time limited">Time limited</option>
+                <option value="Trial">Trial</option>
+              </select>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:row; justify-content:space-between; margin-bottom: 2vh;">
+          <div id="cancel" (click)="cancel()">Cancel</div>
+          <button id="confirm" (click)="addProduct()">Confirm</button>
+        </div>
+      </form>
+</div>
+
+

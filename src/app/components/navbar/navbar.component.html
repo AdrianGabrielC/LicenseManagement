@@ -1,0 +1,31 @@
+<div id="navbar">
+    <div class="navbarBut" (click)="changeSelection('Dashboard')" style="color:{{currentSelection == 'Dashboard'? '#627CA3' : 'black'}}">
+      <img class="navbarImg" src="../assets/homeIcon.png" />
+      <p class="navbarText">Dashboard</p>
+    </div>
+    <div class="navbarBut" (click)="changeSelection('Licenses')" style="color:{{currentSelection == 'Licenses'? '#627CA3' : 'black'}}">
+      <img class="navbarImg" src="../assets/licenseIconV11.png" />
+      <p class="navbarText">Licenses</p>
+    </div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Licenses'" (click)="crudOperation('addLicense')">Issue license</div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Licenses'" (click)="crudOperation('removeLicense')">Remove license</div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Licenses'" (click)="crudOperation('editLicense')">Edit license</div>
+    <div class="navbarBut" (click)="changeSelection('Products')" style="color:{{currentSelection == 'Products'? '#627CA3' : 'black'}}">
+      <img class="navbarImg" src="../assets/productsIconV2.png" />
+      <p class="navbarText">Products</p>
+    </div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Products'" (click)="crudOperation('addProduct')">Add product</div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Products'" (click)="crudOperation('removeProduct')">Remove product</div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Products'" (click)="crudOperation('editProduct')">Edit product</div>
+    <div class="navbarBut" (click)="changeSelection('Customers')" style="color:{{currentSelection == 'Customers'? '#627CA3' : 'black'}}">
+      <img class="navbarImg" src="../assets/customersIcon.jpg" />
+      <p class="navbarText">Customers</p>
+    </div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Customers'" (click)="crudOperation('editCustomers')">Edit customers</div>
+    <div class="navbarBut" (click)="changeSelection('Settings')" style="color:{{currentSelection == 'Settings'? '#627CA3' : 'black'}}">
+      <img class="navbarImg" src="../assets/settingsIconV2.png" />
+      <p class="navbarText">Settings</p>
+    </div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Settings'">Change email</div>
+    <div class="navbarSubBut" *ngIf="currentSelection=='Settings'">Change password</div>
+  </div>

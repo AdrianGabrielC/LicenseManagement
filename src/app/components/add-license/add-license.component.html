@@ -1,0 +1,97 @@
+<div id="issueLicenseForm" style="height:40vh;">
+    <p style="font-size:1.5vw; padding-left:2vw; padding-top:2vw;">Issue license</p>
+    <div class="progress" style="margin-left:2vw; margin-right:4.5vw">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{loadingBarWidth}}"></div>
+    </div>
+    <p *ngIf="phase == 1" style="padding-left:2vw; padding-top:2vw; font-size: 1.1vw; font-weight:bold;">Add License</p>
+    <p *ngIf="phase == 2" style="padding-left:2vw; padding-top:2vw; font-size: 1.1vw; font-weight:bold;">Add Product</p>
+    <p *ngIf="phase == 3" style="padding-left:2vw; padding-top:2vw; font-size: 1.1vw; font-weight:bold;">Add Customer</p>
+    <p *ngIf="phase == 4" style="padding-left:2vw; padding-top:2vw; font-size: 1.1vw; font-weight:bold;">Summary</p>
+
+    <form [formGroup]="addLicenseForm">
+        <div *ngIf="phase == 1" style="display:flex; flex-direction:row; padding:1vw;">
+          <div style="padding-left:1vw">
+            <p style="margin:0; font-size:1.1vw;">License type</p>
+            <select class="generateLicenseInput" formControlName="licenseTypeControl">
+              <option value="Perpetual">Perpetual</option>
+              <option value="Time limited">Time limited</option>
+              <option value="Trial">Trial</option>
+            </select>
+          </div>
+          <div *ngIf="addLicenseForm.controls.licenseTypeControl.value == 'Time limited'">
+            <div style="display:flex; flex-direction:column; margin-right:4vh;">
+              <label for="expirationDate" style="font-size:1.1vw;">License duration</label>
+              <input type="number" min="1" id="expirationDate" style="width:13vw; height:3vh; font-size:1.1vw;" formControlName="timeLimitedDurationControl" />
+              <p style="font-size:1.1vw; color:red; position:absolute; top:27vh;" *ngIf="!this.addLicenseForm.controls.timeLimitedDurationControl.valid"> Please enter a valid date!</p>
+            </div>
+          </div>
+          <div *ngIf="addLicenseForm.controls.licenseTypeControl.value == 'Trial'" style="display:flex; flex-direction: column; margin-right:4vh;">
+            <label for="trial" style="font-size:1.8vh;">Trial Days</label>
+            <input id="trial" type="number" min="1" max="90" style="font-size:1.8vh; width:13vw; height:3vh;" formControlName="trialDurationControl"/>
+            <p style="font-size:1.1vw; color:red; position:absolute; top:27vh;" *ngIf="!this.addLicenseForm.controls.trialDurationControl.valid"> Please enter a valid value!</p>
+          </div>
+        </div>
+    
+        <div *ngIf="phase == 2" style="display: flex; flex-direction: row; padding: 1vw;">
+          <div style="padding-left:1vw;">
+            <p style="margin:0; font-size:1.1vw;">Product name</p>
+            <select class="generateLicenseInput" formControlName="productTypeControl">
+              <option *ngFor="let product of products">{{product.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div *ngIf="phase == 3" style="display: flex; flex-direction: row; padding-left: 1vw;">
+            <select class="generateLicenseInput" (change)="changeCustomerType($event)" formControlName="customerControl" style="margin-top:3vh; margin-left:1vw;">
+                <option value="New customer">New customer</option>
+                <option value="Existing customer">Existing customer</option>
+              </select>
+          <div *ngIf="selectedCustomer == 'New customer'" id="newCustomerDiv" [style]="newCustomerStyle">
+            <div style="display:flex; flex-direction:column;">
+              <label class="generateLicenseInput" for="name">Name</label>
+              <input class="generateLicenseInput" id="name" type="text" formControlName="nameControl" />
+            </div>
+            <div style="display:flex; flex-direction:column;">
+                <label class="generateLicenseInput" for="email">Email</label>
+                <input class="generateLicenseInput" id="email" type="text" formControlName="emailControl" />
+                <p id="invalidEmail" style="margin-left:44vh; font-size:1.5vh; color:red; position:absolute; left:7vw; top:24vh;" *ngIf="!addLicenseForm.controls.emailControl.valid"> Please enter a valid email!</p>
+            </div>
+          </div>
+          <select *ngIf="selectedCustomer == 'Existing customer'" class="generateLicenseInput" formControlName="existingCustomerControl" style="margin-top:3vh; ">
+            <option *ngFor="let customer of customers">{{customer.email}}</option>
+          </select>
+        </div>
+    
+        <div *ngIf="phase == 4" style=" margin-left: 1.5vw; margin-right: 4.5vw; font-size:1.1vw">
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>License type</th>
+                        <th *ngIf="this.addLicenseForm.controls.licenseTypeControl.value == 'Time limited'">License duration</th>
+                        <th *ngIf="this.addLicenseForm.controls.licenseTypeControl.value == 'Trial'">Trial duration </th>
+                        <th>Product</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{this.addLicenseForm.controls.licenseTypeControl.value}}</td>
+                        <td *ngIf="this.addLicenseForm.controls.licenseTypeControl.value == 'Time limited'">{{this.addLicenseForm.controls.timeLimitedDurationControl.value}}</td>
+                        <td *ngIf="this.addLicenseForm.controls.licenseTypeControl.value == 'Trial'">{{this.addLicenseForm.controls.trialDurationControl.value}}</td>
+                        <td>{{this.addLicenseForm.controls.productTypeControl.value}}</td>
+                        <td *ngIf="selectedCustomer == 'New customer'">{{this.addLicenseForm.controls.emailControl.value}}</td>
+                        <td *ngIf="selectedCustomer == 'Existing customer'">{{this.addLicenseForm.controls.existingCustomerControl.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display:flex; flex-direction:row; justify-content:space-between">
+          <div id="cancel" (click)="cancel()">Cancel</div>
+          <div *ngIf="phase != 1" id="back" (click)="back()">Back</div>
+          <div *ngIf="phase <= 3" id="next" (click)="next()">Next</div>
+          <button *ngIf="phase == 4" id="confirm" (click)="submitLicenseForm()">Confirm</button>
+        </div>
+      </form>
+</div>
+
+

@@ -1,0 +1,5 @@
+<app-header style="filter:brightness({{brightness}})"></app-header>
+<div style="height:93vh; display:flex; flex-direction:row;">
+  <app-navbar (notifySelection)="changeSelection($event)" (notifyCRUD)="crudOperation($event)" [brightness]="brightness" [currentSelection]="currentSelection" style="filter:brightness({{brightness}})"></app-navbar>
+  <app-content (notifySelection)="changeSelection($event)" (notifyBrightness)="changeBrightness($event)" style="width:100%;" [currentSelection]="currentSelection"></app-content>
+</div>

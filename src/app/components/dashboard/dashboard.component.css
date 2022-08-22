@@ -1,0 +1,29 @@
+#dashboard {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .dashboardDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px;
+    font-size: 1vw;
+    background: white;
+    width: 20%;
+    text-align: center;
+    font-family: Avenir;
+    border: solid 1px;
+    border-color: lightgrey;
+    margin-top: 50px;
+    transition: transform 0.4s ease-out;
+    cursor:pointer
+  }
+  .dashboardDiv:hover{
+    transform: scale(1.1);
+  }
+  .dashboardImg {
+    width: 20%;
+  }
+  

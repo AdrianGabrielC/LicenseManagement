@@ -1,0 +1,35 @@
+#addProduct {
+    position: absolute;
+    top: 25vh;
+    left: 20vw;
+    width: 65vw;
+    background: white;
+  }
+  
+  #productName, #shortCode, #licenseType {
+    margin-bottom: 3vh;
+  }
+  
+  #cancel, #confirm {
+    font-size: 1.1vw;
+    width: 10%;
+    height: 4vh;
+    text-align: center;
+    color: white;
+    margin-top: 5vh;
+    border-radius: 4px;
+    padding-top: 0.7vh;
+    cursor: pointer;
+  }
+  
+  #cancel {
+    background: #fe433c;
+    margin-left: 2vw;
+  }
+  
+  #confirm {
+    border: none;
+    background: #7A9163;
+    margin-right: 2vw;
+  }
+  

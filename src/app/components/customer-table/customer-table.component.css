@@ -1,0 +1,11 @@
+#customer-table {
+    width: 75vw;
+    height: 60vh;
+    margin-left: 6%;
+    overflow: scroll;
+    overflow-x: hidden;
+    font-size: 1vw;
+  }
+  #removeCustomer {
+    cursor: pointer;
+  }

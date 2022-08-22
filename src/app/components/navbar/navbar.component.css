@@ -1,0 +1,51 @@
+#navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 15vw;
+    height: 93vh;
+    background: #F7FAFA;
+    font-family: Avenir;
+    font-size: 22px;
+    padding-top: 3%;
+    padding-left: 2%;
+  }
+  
+  .navbarBut {
+    display: flex;
+    transition: transform 0.4s ease-out;
+    /*transition-duration: 0.4s;*/
+    cursor: pointer;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10%;
+  }
+  
+    .navbarBut:hover {
+      transform: scale(1.2);
+    }
+  
+  .navbarImg {
+    align-self: center;
+    width: 20%;
+  }
+  
+  .navbarText {
+    font-size: 1.5vw;
+    padding-left: 5%;
+    margin-top: 10%;
+  }
+  
+  .navbarSubBut {
+    margin-left: 32%;
+    transition-duration: 0.4s;
+    font-size: 0.9vw;
+    cursor: pointer;
+    margin-top: -25%;
+    font-weight: bold;
+  }
+  
+    .navbarSubBut:hover {
+      transform: scale(1.1);
+    }
+  

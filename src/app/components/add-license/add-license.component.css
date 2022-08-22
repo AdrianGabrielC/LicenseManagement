@@ -1,0 +1,95 @@
+#issueLicenseForm {
+    position: absolute;
+    top: 25vh;
+    left: 20vw;
+    width: 65vw;
+    background: white;
+  }
+  
+  #addProductForm {
+    position: absolute;
+    top: 25vh;
+    left: 20vw;
+    width: 65vw;
+    background: white;
+  }
+  
+  #loadingBar {
+    background: dodgerblue;
+    width: 20%;
+    height: 2.5vh;
+    margin-left: 2vw;
+    transition-duration: 0.4s;
+  }
+  
+  
+  #generateLicense {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    margin-top: 5%;
+  }
+  
+  #generateLicenseCustomer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  
+  .generateLicenseInput {
+    width: 13vw;
+    height: 3vh;
+    font-size: 1.1vw;
+    margin-right: 3vw;
+  }
+  
+  #name, #email {
+    margin-bottom: 3vh;
+  }
+  
+  #cancel, #next, #back, #confirm {
+    font-size: 1.1vw;
+    width: 10%;
+    height: 4vh;
+    text-align: center;
+    color: white;
+    margin-top: 5vh;
+    border-radius: 4px;
+    padding-top: 0.7vh;
+    cursor: pointer;
+  }
+  
+  #cancel {
+    background: #fe433c;
+    margin-left: 2vw;
+  }
+  
+  #next {
+    background: #03A0E8;
+    margin-right: 2vw;
+  }
+  
+  #back {
+    background: none;
+    margin-left: 38vw;
+    border: 1px solid grey;
+    color: grey;
+  }
+  
+  #confirm {
+    border: none;
+    background: #7A9163;
+    margin-right: 2vw;
+  }
+  
+  #newCustomerDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  #existingCustomerDiv {
+    display: none;
+  }
+  

@@ -1,0 +1,24 @@
+#license-table {
+    width: 75vw;
+    height: 60vh;
+    margin-left: 5vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    font-size: 1vw;
+  }
+  
+  #refresh {
+    position: absolute;
+    top:15.5vh;
+    left: 67vw;
+    transform: scale(1.5);
+    cursor:pointer;
+    transition-duration: 0.4s;
+  }
+  #refresh:hover {
+    transform: scale(1.8);
+  }
+
+  #removeLicense {
+    cursor: pointer;
+  }
